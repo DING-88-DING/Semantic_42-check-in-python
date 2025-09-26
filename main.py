@@ -116,9 +116,12 @@ def main():
         ws = wb.active
         ws.title = "Wallets"
         ws.append(["PrivateKey", "ProxyIP", "PrivyToken"])
-        ws.append(["0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "127.0.0.1:7890", "ey..."])
+        # 模板1: 无密码代理
+        ws.append(["0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "123.45.67.89:8080", "ey... (token for wallet 1)"])
+        # 模板2: 有密码代理
+        ws.append(["0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "my_user:my_password@198.76.54.32:8888", "ey... (token for wallet 2)"])
         wb.save(EXCEL_FILE)
-        logging.info(f"已为您创建一个模板文件 '{EXCEL_FILE}'，请填入您的数据后重新运行脚本。")
+        logging.info(f"已为您创建一个包含格式示例的模板文件 '{EXCEL_FILE}'，请填入您的数据后重新运行脚本。")
         return
 
     # 遍历Excel中的每一行 (跳过表头)
